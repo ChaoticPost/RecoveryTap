@@ -2,8 +2,13 @@ package com.example.recoverytap;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class RegistrationFullNameActivity extends AppCompatActivity {
@@ -19,7 +24,11 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
         Log.v("myLogs", "onCreate");
         Log.w("myLogs", "onCreate");
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
-
+        ImageButton imageButton = findViewById(R.id.imageButton);
+        TextView textView = findViewById(R.id.textView);
+        textView.setText(R.string.welcome);
+        ImageView imageView = findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.logo_only);
     }
     @Override
     protected void onStart() {
