@@ -11,11 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.recoverytap.databinding.ActivityRegistrationFullNameBinding;
+
 public class RegistrationFullNameActivity extends AppCompatActivity {
+    private ActivityRegistrationFullNameBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityRegistrationFullNameBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_registration_full_name);
 
         Log.d("myLogs", "onCreate");
@@ -24,19 +28,19 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
         Log.v("myLogs", "onCreate");
         Log.w("myLogs", "onCreate");
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
-        ImageButton imageButton = findViewById(R.id.imageButton);
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        //ImageButton imageButton = findViewById(R.id.imageButton);
+        /*binding.imageButton.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
              Log.d("myLogs","Button click"); ///program click
             }
-        });
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(R.string.welcome);
-        ImageView imageView = findViewById(R.id.imageView);
-        imageView.setImageResource(R.drawable.logo_only);
+        });*/
+        //TextView textView = findViewById(R.id.textView);
+        binding.textView.setText(R.string.welcome);
+        //ImageView imageView = findViewById(R.id.imageView);
+        binding.imageView.setImageResource(R.drawable.logo_only);
     }
     @Override
     protected void onStart() {
@@ -96,7 +100,7 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
     }
 
 
-     /*public void continueRegistration(View view) {
+    public void continueRegistration(View view) {
         Log.d("myLogs","Button click"); /// declarative click
-    }*/
+    }
 }
