@@ -88,5 +88,7 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
     }
 
 
-
+    public void continueRegistration(View view) {
+        Log.d("myLogs","Button click"); /// declarative click
+    }
 }
