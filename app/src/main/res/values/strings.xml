@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">RecoveryTap</string>
+    <string name="welcome">Добро пожаловать</string>
+    <string name="data">Введите свои данные</string>
+    <string name="name">Имя*</string>
+    <string name="surname">Фамилия*</string>
+    <string name="patronymic">Отчество</string>
+    <string name="hint_name">Иван</string>
+    <string name="hint_surname">Иванов</string>
+    <string name="hint_patronymic">Иванович</string>
+    <string name="hint_remark">*Поля обязятаельны для ввода</string>
+    <string name="email">Введите почту</string>
+    <string name="hint_mail">Patient@gmail.com</string>
+    <string name="password">Введите пароль</string>
+    <string name="hint_password">••••••</string>
+    <string name="password_again">Повторите пароль</string>
+    <string name="input">Вход</string>
 </resources>

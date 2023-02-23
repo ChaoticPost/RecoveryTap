@@ -3,7 +3,7 @@
     android:color="@color/material_on_primary_disabled">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#0659FD"/>
+            <solid android:color="@color/primary"/>
             <corners android:radius="10dp"/>
         </shape>
     </item>
