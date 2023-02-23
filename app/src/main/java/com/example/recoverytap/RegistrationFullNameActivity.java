@@ -25,6 +25,14 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
         Log.w("myLogs", "onCreate");
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
         ImageButton imageButton = findViewById(R.id.imageButton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+             Log.d("myLogs","Button click"); ///program click
+            }
+        });
         TextView textView = findViewById(R.id.textView);
         textView.setText(R.string.welcome);
         ImageView imageView = findViewById(R.id.imageView);
@@ -88,7 +96,7 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
     }
 
 
-    public void continueRegistration(View view) {
+     /*public void continueRegistration(View view) {
         Log.d("myLogs","Button click"); /// declarative click
-    }
+    }*/
 }
