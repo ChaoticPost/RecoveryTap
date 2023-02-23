@@ -13,11 +13,11 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:src="@drawable/logo_only"
             android:id="@+id/imageView"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             android:layout_marginTop="8dp"
-            android:background="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -32,7 +32,7 @@
             android:layout_marginTop="32dp"
             android:fontFamily="serif"
             android:letterSpacing="0.05"
-            android:text="Добро пожаловать"
+            android:text="@string/welcome"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Введите свои данные"
+            android:text="@string/data"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +69,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Имя*"
+                android:text="@string/name"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -77,14 +77,14 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Иван"
+                android:hint="@string/hint_name"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Фамилия*"
+                android:text="@string/surname"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -92,14 +92,14 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Иванов"
+                android:hint="@string/hint_surname"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Отчество"
+                android:text="@string/patronymic"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -107,23 +107,24 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Иванович"
+                android:hint="@string/hint_patronymic"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*Поля обязятаельны для ввода" />
+                android:text="@string/hint_remark" />
         </LinearLayout>
 
-        <Button
+        <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:paddingHorizontal="32dp"
             android:paddingVertical="8dp"
-            android:text=">"
+            android:src="@drawable/baseline_keyboard_arrow_right_16"
+            android:background="@drawable/rounded_button"
             android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
