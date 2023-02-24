@@ -1,11 +1,17 @@
 package com.example.recoverytap;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +21,18 @@ import com.example.recoverytap.databinding.ActivityRegistrationFullNameBinding;
 
 public class RegistrationFullNameActivity extends AppCompatActivity {
     private ActivityRegistrationFullNameBinding binding;
+    ActivityResultLauncher<Intent> startForResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result != null && result.getResultCode() == RESULT_OK) {
+                        if (result.getData() != null && result.getData().getStringExtra(RegistrationPasswordActivity.KEY) != null) {
+                            String name = result.getData().getStringExtra(RegistrationPasswordActivity.KEY);
+                            binding.textView.setText(getString(R.string.inout, name));
+                        }
+                    }
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +52,11 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-             Log.d("myLogs","Button click"); ///program click
+                Log.d("myLogs", "Button click"); ///program click
+                startForResult.launch(RegistrationPasswordActivity.newIntentRegistrationPassword(
+                        RegistrationFullNameActivity.this,
+                        binding.name.getText().toString()
+                ));
             }
         });
         //TextView textView = findViewById(R.id.textView);
@@ -42,6 +64,7 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
         //ImageView imageView = findViewById(R.id.imageView);
         binding.imageView.setImageResource(R.drawable.logo_only);
     }
+
     @Override
     protected void onStart() {
         super.onStart();
