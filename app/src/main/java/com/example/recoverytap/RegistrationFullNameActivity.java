@@ -20,7 +20,7 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityRegistrationFullNameBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_registration_full_name);
+        setContentView(binding.getRoot());
 
         Log.d("myLogs", "onCreate");
         Log.e("myLogs", "onCreate");
@@ -29,14 +29,14 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
         Log.w("myLogs", "onCreate");
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
         //ImageButton imageButton = findViewById(R.id.imageButton);
-        /*binding.imageButton.setOnClickListener(new View.OnClickListener() {
+        binding.imageButton1.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
              Log.d("myLogs","Button click"); ///program click
             }
-        });*/
+        });
         //TextView textView = findViewById(R.id.textView);
         binding.textView.setText(R.string.welcome);
         //ImageView imageView = findViewById(R.id.imageView);
@@ -100,7 +100,7 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
     }
 
 
-    public void continueRegistration(View view) {
+    /*public void continueRegistration(View view) {
         Log.d("myLogs","Button click"); /// declarative click
-    }
+    }*/
 }

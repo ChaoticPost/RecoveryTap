@@ -123,7 +123,6 @@
             android:layout_marginBottom="32dp"
             android:background="@drawable/rounded_button"
             android:focusable="true"
-            android:onClick="continueRegistration"
             android:paddingHorizontal="32dp"
             android:paddingVertical="8dp"
             android:src="@drawable/baseline_keyboard_arrow_right_16"
@@ -131,6 +130,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-
+<!--            android:onClick="continueRegistration"-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
