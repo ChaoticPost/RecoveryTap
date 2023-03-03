@@ -11,13 +11,31 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import com.example.recoverytap.databinding.FragmentRegFullNameBinding;
 import com.example.recoverytap.databinding.FragmentRegPasswordBinding;
 
 public class RegPasswordFragment extends Fragment {
+    private String name="";
     private FragmentRegPasswordBinding binding;
-
+    public static final String KEY_REG_NAME = "name";
+    public static final String KEY_RESULT = "result";
+    ///фабричный метод для создания фрагмента
+    public static RegPasswordFragment newInstance(String name){
+        RegPasswordFragment fragment = new RegPasswordFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(KEY_REG_NAME,name);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+    private void parseArgs(){
+        Bundle bundle = this.getArguments();
+        if (bundle != null){
+            name = bundle.getString(KEY_REG_NAME);
+            binding.textView.setText(getString(R.string.inout,name));
+        }
+    }
     @Override
     public void onAttach(@NonNull Context context) {
         Log.d("regpasswordfrag", "onAttach");
@@ -47,6 +65,10 @@ public class RegPasswordFragment extends Fragment {
         Log.d("regpasswordfrag", "onViewCreated");
         Toast.makeText(getContext(), "onViewCreated", Toast.LENGTH_SHORT).show();
         super.onViewCreated(view, savedInstanceState);
+        parseArgs();
+        Bundle result = new Bundle();
+        result.putString(RegiFullNameFragment.KEY_REG_NAME, name);
+        getParentFragmentManager().setFragmentResult(RegiFullNameFragment.KEY_RESULT, result);
     }
 
     @Override
