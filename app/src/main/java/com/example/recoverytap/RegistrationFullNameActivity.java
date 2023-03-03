@@ -21,18 +21,18 @@ import com.example.recoverytap.databinding.ActivityRegistrationFullNameBinding;
 
 public class RegistrationFullNameActivity extends AppCompatActivity {
     private ActivityRegistrationFullNameBinding binding;
-    ActivityResultLauncher<Intent> startForResult = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result != null && result.getResultCode() == RESULT_OK) {
-                        if (result.getData() != null && result.getData().getStringExtra(RegistrationPasswordActivity.KEY) != null) {
-                            String name = result.getData().getStringExtra(RegistrationPasswordActivity.KEY);
-                            binding.textView.setText(getString(R.string.inout, name));
-                        }
-                    }
-                }
-            });
+//    ActivityResultLauncher<Intent> startForResult = registerForActivityResult(
+//            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+//                @Override
+//                public void onActivityResult(ActivityResult result) {
+//                    if (result != null && result.getResultCode() == RESULT_OK) {
+//                        if (result.getData() != null && result.getData().getStringExtra(RegistrationPasswordActivity.KEY) != null) {
+//                            String name = result.getData().getStringExtra(RegistrationPasswordActivity.KEY);
+//                            binding.textView.setText(getString(R.string.inout, name));
+//                        }
+//                    }
+//                }
+//            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,23 +46,28 @@ public class RegistrationFullNameActivity extends AppCompatActivity {
         Log.v("myLogs", "onCreate");
         Log.w("myLogs", "onCreate");
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container_fragment,RegiFullNameFragment.class,null)
+                    .commit();
+        }
         //ImageButton imageButton = findViewById(R.id.imageButton);
-        binding.imageButton1.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View view) {
-                Log.d("myLogs", "Button click"); ///program click
-                startForResult.launch(RegistrationPasswordActivity.newIntentRegistrationPassword(
-                        RegistrationFullNameActivity.this,
-                        binding.name.getText().toString()
-                ));
-            }
-        });
-        //TextView textView = findViewById(R.id.textView);
-        binding.textView.setText(R.string.welcome);
-        //ImageView imageView = findViewById(R.id.imageView);
-        binding.imageView.setImageResource(R.drawable.logo_only);
+//        binding.imageButton1.setOnClickListener(new View.OnClickListener() {
+//
+//
+//            @Override
+//            public void onClick(View view) {
+//                Log.d("myLogs", "Button click"); ///program click
+//                startForResult.launch(RegistrationPasswordActivity.newIntentRegistrationPassword(
+//                        RegistrationFullNameActivity.this,
+//                        binding.name.getText().toString()
+//                ));
+//            }
+//        });
+//        //TextView textView = findViewById(R.id.textView);
+//        binding.textView.setText(R.string.welcome);
+//        //ImageView imageView = findViewById(R.id.imageView);
+//        binding.imageView.setImageResource(R.drawable.logo_only);
     }
 
     @Override
